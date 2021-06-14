@@ -1,29 +1,36 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:restaurant/proflefod.dart';
 
-import 'main.dart';
+import 'declrtion.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Hero(
-        tag: 'flutterLogo',
-        child: GestureDetector(
-          onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => HeroExamplePage())),
-          child: Container(
-            height: 52,
-            child: Image.network(
-                'https://image.freepik.com/psd-gratuit/plat-poser-delicieux-fast-food-table-bois_23-2148321332.jpg'),
+StaggeredGridView buildStaggeredGridView() {
+  return StaggeredGridView.countBuilder(
+    crossAxisCount: 3,
+    itemCount: list.length,
+    itemBuilder: (context, index) => Container(
+      child: Card(
+        color: Color(0xFFF3F2F2),
+        child: Hero(
+          tag: 'flutterLogo',
+          child: GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        HeroExamplePage(Postfrm.urlimage(index)))),
+            child: Container(
+              height: Postfrm.hight(index).toDouble(),
+              child: Image.network(Postfrm.urlimage(index)),
+            ),
           ),
         ),
       ),
-    );
-  }
+    ),
+    staggeredTileBuilder: (index) => StaggeredTile.count(
+        (index % 7 == 0) ? 2 : 1, (index % 7 == 0) ? 3 : 1.5),
+    mainAxisSpacing: 8.0,
+    crossAxisSpacing: 8.0,
+  );
 }

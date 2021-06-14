@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 
 class HeroExamplePage extends StatelessWidget {
+  final imag;
+
+  const HeroExamplePage(this.imag);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,14 +20,13 @@ class HeroExamplePage extends StatelessWidget {
                 tag: 'flutterLogo',
                 child: GestureDetector(
                   onTap: () => Navigator.pop(context,
-                      MaterialPageRoute(builder: (context) => MyHomePage())),
+                      MaterialPageRoute(builder: (context) => MyApp())),
                   child: Container(
                     height: 300,
                     child: InteractiveViewer(
                       child: FadeInImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://image.freepik.com/psd-gratuit/plat-poser-delicieux-fast-food-table-bois_23-2148321332.jpg'),
+                        image: NetworkImage(imag),
                         placeholder: AssetImage('assets/images/image_fand'),
                       ),
                     ),
