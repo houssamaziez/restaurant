@@ -18,7 +18,7 @@ class List1 extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              color: prykcolor.withOpacity(0.2),
+              color: prykcolor.withOpacity(0.3),
             ),
             height: 65,
             width: 80,

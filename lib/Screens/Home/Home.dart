@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
 
   List _screens = [
     {"screen": ScreenHome(), "title": "Screen A Title"},
-    {"screen": ScreenHome(), "title": "Screen B Title"}
+    {"screen": ScreenHome(), "title": "Screen B Title"},
   ];
   void _selectScreen(int index) {
     setState(() {
@@ -35,14 +35,19 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: _screens[_selectedScreenIndex]["screen"],
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 12,
         currentIndex: _selectedScreenIndex,
+        selectedFontSize: 16,
+        selectedIconTheme: IconThemeData(size: 25),
+        unselectedIconTheme: IconThemeData(size: 20),
         onTap: _selectScreen,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Screen A',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Screen B")
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: "Screen B"),
         ],
       ),
     );
