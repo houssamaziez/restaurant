@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'Screens/GetStart.dart';
+import 'Screens/start/GetStart.dart';
 
-import 'Screens/tips.dart';
-import 'config.dart';
+import 'Screens/Home/Home.dart';
+import 'config/config.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
-      home: Tips(),
+      home: Home(),
     );
   }
 }

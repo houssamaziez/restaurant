@@ -5,7 +5,7 @@ import 'package:ff1/Screens/screen_login_Signup/Signup.dart';
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
 
-import '../config.dart';
+import '../../config/config.dart';
 
 class Tips extends StatefulWidget {
   @override

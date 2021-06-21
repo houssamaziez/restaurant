@@ -7,6 +7,12 @@ pop(context, page) {
   }));
 }
 
+push(context, page) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return page;
+  }));
+}
+
 bool isConnected = true;
 
 mobileheight(context) {

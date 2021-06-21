@@ -1,7 +1,7 @@
-import 'package:ff1/Screens/tips.dart';
+import 'package:ff1/Screens/start/tips.dart';
 import 'package:flutter/material.dart';
 
-import '../config.dart';
+import '../../config/config.dart';
 
 class GetStart extends StatefulWidget {
   @override

@@ -1,9 +1,10 @@
+import 'package:ff1/Screens/Home/Home.dart';
 import 'package:ff1/Screens/screen_login_Signup/Forgot.dart';
 import 'package:ff1/Screens/screen_login_Signup/Signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import '../../config.dart';
+import '../../config/config.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -112,7 +113,9 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pop(context, Home());
+                  },
                   child: Container(
                     alignment: Alignment.center,
                     width: MediaQuery.of(context).size.width,
