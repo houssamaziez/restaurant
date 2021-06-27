@@ -1,46 +1,63 @@
+import 'package:ff1/Screens/Home/prodact/prodact_detail.dart';
 import 'package:ff1/config/config.dart';
+import 'package:ff1/config/config_home.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class List1 extends StatelessWidget {
-  final imag, title;
+class List1 extends StatefulWidget {
+  final imag, title, i;
 
-  const List1({this.imag, this.title});
+  List1({this.imag, this.title, this.i});
 
+  @override
+  _List1State createState() => _List1State();
+}
+
+class _List1State extends State<List1> {
+  var hh = 1;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              color: prykcolor.withOpacity(0.3),
-            ),
-            height: 65,
-            width: 80,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Expanded(
-                    child: Image.asset(
-                  imag,
-                  fit: BoxFit.cover,
-                )),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
+        InkWell(
+          onTap: () {
+            setState(() {
+              hh = widget.i;
+              print(list1[widget.i]["id"]);
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                // ignore: unrelated_type_equality_checks
+                color: list1[widget.i]["id"] == hh ? prykcolor : Colors.white,
+              ),
+              height: 65,
+              width: 70,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                      child: Image.asset(
+                    widget.imag,
+                    fit: BoxFit.cover,
+                  )),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
         Text(
-          title,
+          widget.title,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
       ],
@@ -65,14 +82,24 @@ class List2 extends StatelessWidget {
             bottom: 8.0,
           ),
           child: Container(
+            child: GestureDetector(
+              onTap: () => push(
+                  context,
+                  MyProdact(
+                    imag: imag,
+                  )),
+              child: Container(
+                height: 52,
+                child: Image.asset(
+                  imag,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
             width: MediaQuery.of(context).size.width,
             height: 250,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(imag),
-              ),
             ),
           ),
         ),

@@ -5,16 +5,22 @@ import 'package:flutter/material.dart';
 import 'Lists.dart';
 
 // ignore: must_be_immutable
-class ScreenHome extends StatelessWidget {
-  var list = List.generate(list2.length, (index) => index);
+class ScreenHome extends StatefulWidget {
+  @override
+  _ScreenHomeState createState() => _ScreenHomeState();
+}
+
+class _ScreenHomeState extends State<ScreenHome> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
+      backgroundColor: Color(0xFFD6D5D5),
       body: SafeArea(
         child: CustomScrollView(
           controller: controller,
           slivers: [
             SliverAppBar(
+              leading: Container(),
               backgroundColor: Colors.transparent,
               elevation: 0,
               centerTitle: true,
@@ -27,7 +33,9 @@ class ScreenHome extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                // kyDrawer.currentState.openEndDrawer();
+                              },
                               icon: Icon(
                                 Icons.menu_sharp,
                                 color: Colors.black,
@@ -88,6 +96,7 @@ class ScreenHome extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, indext) {
                             return List1(
+                              i: i,
                               imag: list1[indext]["imag"],
                               title: list1[indext]["title"],
                             );
@@ -119,4 +128,6 @@ class ScreenHome extends StatelessWidget {
       ),
     );
   }
+
+  int i = 1;
 }

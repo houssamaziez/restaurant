@@ -1,10 +1,18 @@
+import 'package:ff1/Screens/Home/Screens/ScreenHome.dart';
+import 'package:ff1/Screens/Home/Screens/ScreenMenu.dart';
 import 'package:flutter/material.dart';
 
 var controller = ScrollController();
-
+var list = List.generate(list2.length, (index) => index);
+GlobalKey<ScaffoldState> kyDrawer = GlobalKey<ScaffoldState>();
+List screens = [
+  {"screen": ScreenHome(), "title": "Screen A Title"},
+  {"screen": ScreenHome(), "title": "Screen B Title"},
+  {"screen": Menu(), "title": "Screen c Title"},
+];
 var list1 = [
   {
-    "id": "1",
+    "id": "0",
     'title': 'Popular',
     "imag": "images/img1.png",
   },

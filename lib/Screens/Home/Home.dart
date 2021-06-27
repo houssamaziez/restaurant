@@ -1,7 +1,6 @@
+import 'package:ff1/Screens/Home/drawer/MyDrawer.dart';
 import 'package:ff1/config/config_home.dart';
 import 'package:flutter/material.dart';
-
-import 'Screens/ScreenHome.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,10 +11,6 @@ class _HomeState extends State<Home> {
   int _selectedScreenIndex = 0;
   final index = 0.0;
 
-  List _screens = [
-    {"screen": ScreenHome(), "title": "Screen A Title"},
-    {"screen": ScreenHome(), "title": "Screen B Title"},
-  ];
   void _selectScreen(int index) {
     setState(() {
       _selectedScreenIndex = index;
@@ -33,7 +28,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedScreenIndex]["screen"],
+      key: kyDrawer,
+      drawer: MyDrawer(),
+      body: screens[_selectedScreenIndex]["screen"],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 12,
         currentIndex: _selectedScreenIndex,
@@ -47,7 +44,13 @@ class _HomeState extends State<Home> {
             label: 'Screen A',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Screen B"),
+              icon: Icon(Icons.restaurant_menu_outlined), label: "Screen B"),
+          BottomNavigationBarItem(
+            icon: InkWell(
+              child: Icon(Icons.person),
+            ),
+            label: 'Profil',
+          ),
         ],
       ),
     );

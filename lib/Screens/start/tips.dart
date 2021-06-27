@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:ff1/Screens/screen_login_Signup/Login.dart';
 import 'package:ff1/Screens/screen_login_Signup/Signup.dart';
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';

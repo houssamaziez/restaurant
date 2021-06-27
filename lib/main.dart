@@ -5,7 +5,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'Screens/start/GetStart.dart';
 
-import 'Screens/Home/Home.dart';
 import 'config/config.dart';
 
 void main() {
