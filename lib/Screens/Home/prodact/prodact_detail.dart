@@ -1,3 +1,5 @@
+import 'package:ff1/Screens/Home/shopcard/FodCardSreen.dart';
+import 'package:ff1/config/config.dart';
 import 'package:ff1/config/config_home.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,7 @@ class MyProdact extends StatelessWidget {
                   child: Center(
                     child: IconButton(
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        push(context, ScreenFoodCard());
                       },
                       icon: Icon(
                         Icons.add_shopping_cart_sharp,
@@ -100,50 +102,29 @@ class MyProdact extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: Icon(
-                        Icons.minimize,
-                        color: Colors.white,
-                        size: 27,
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                        color: Colors.red.withOpacity(0.8),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
-                        )),
-                    height: 40,
-                    width: 40,
-                  ),
+                Container(
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Image.asset(
+                        'images/MOIN.png',
+                        fit: BoxFit.cover,
+                      )),
+                  height: MediaQuery.of(context).size.height * 0.066,
+                  width: MediaQuery.of(context).size.height * 0.066,
                 ),
-                Text("1"),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 27,
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                        color: Colors.red.withOpacity(0.8),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
-                        )),
-                    height: 40,
-                    width: 40,
-                  ),
+                  child: Text('1'),
+                ),
+                Container(
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Image.asset(
+                        'images/PLUS.png',
+                        fit: BoxFit.cover,
+                      )),
+                  height: MediaQuery.of(context).size.height * 0.066,
+                  width: MediaQuery.of(context).size.height * 0.066,
                 ),
               ],
             ),
@@ -192,13 +173,60 @@ class MyProdact extends StatelessWidget {
           ]))
         ],
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-            color: Colors.red.withOpacity(0.8),
-            borderRadius: BorderRadius.all(
-              Radius.circular(15),
-            )),
-        height: 30,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(right: 20, left: 20, bottom: 10),
+        child: Container(
+          height: MediaQuery.of(context).size.width * 0.088,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.red.withOpacity(0.66),
+                Colors.red.withOpacity(0.8),
+              ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              )),
+          child: InkWell(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            onTap: () {},
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 15,
+                  ),
+                  child: Text(
+                    "50 DA",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.066,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Spacer(),
+                Text(
+                  " Add to cart ",
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    right: 10,
+                  ),
+                  child: Icon(
+                    Icons.shopping_bag_outlined,
+                    size: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

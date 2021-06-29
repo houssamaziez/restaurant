@@ -1,3 +1,4 @@
+import 'package:ff1/Screens/Home/shopcard/FodCardSreen.dart';
 import 'package:ff1/config/config.dart';
 import 'package:ff1/config/config_home.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class ScreenHome extends StatefulWidget {
 class _ScreenHomeState extends State<ScreenHome> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       backgroundColor: Color(0xFFD6D5D5),
       body: SafeArea(
         child: CustomScrollView(
@@ -41,8 +42,15 @@ class _ScreenHomeState extends State<ScreenHome> {
                                 color: Colors.black,
                               )),
                           Spacer(),
-                          CircleAvatar(
-                            backgroundColor: prykcolor,
+                          IconButton(
+                            onPressed: () {
+                              push(context, ScreenFoodCard());
+                            },
+                            icon: Icon(
+                              Icons.add_shopping_cart_sharp,
+                              color: Colors.black,
+                              size: 20,
+                            ),
                           ),
                         ],
                       ),

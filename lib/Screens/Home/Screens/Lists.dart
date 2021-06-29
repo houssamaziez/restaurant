@@ -82,7 +82,7 @@ class List2 extends StatelessWidget {
             bottom: 8.0,
           ),
           child: Container(
-            child: GestureDetector(
+            child: InkWell(
               onTap: () => push(
                   context,
                   MyProdact(
